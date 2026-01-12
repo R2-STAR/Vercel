@@ -6,6 +6,12 @@ import { getAllFiles } from "./file.js";
 import path from "path";
 import { uploadFile } from "./aws.js";
 import { createClient } from "redis";
+
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const publisher = createClient();
 publisher.connect();
 
