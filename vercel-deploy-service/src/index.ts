@@ -18,7 +18,7 @@ async function main() {
         await downloadS3Folder(`output/${id}`) //download files of particular ID from S3 queue
         await buildProject(id); // build it 
         copyFinalDist(id);
-        publisher.hSet("status", id, "deployed")
+        publisher.hSet("status", id, "deployed") //deployer sets the status in redis DB
     }
 }
 main();

@@ -1,0 +1,7 @@
+{
+  "references": [
+    { "path": "./vercel-upload-service" },
+    { "path": "./vercel-deploy-service" },
+    { "path": "./vercel-request-handler" }
+  ]
+}

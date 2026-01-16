@@ -15,6 +15,9 @@ const __dirname = path.dirname(__filename);
 const publisher = createClient();
 publisher.connect();
 
+const subscriber = createClient();
+subscriber.connect();
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -43,7 +46,13 @@ app.post("/deploy", async (req, res) => {
 
 }); 
 
-app.get("/status", )
+app.get("/status", async (req, res) => { //to get the current status
+    const id = req.query.id;
+    const response = await subscriber.hGet("status", id as string);
+    res.json({
+        status: response
+    })
+})
 
 app.listen(3000);
 
